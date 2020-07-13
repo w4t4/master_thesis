@@ -2,13 +2,12 @@
 	<bsdf type="twosided" id="object_bsdf">
         <bsdf type="conductor">
 			<string name="material" value="Ag"/>
-            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
+            <!-- <rgb name="reflectance" value="0.2, 0.25, 0.7"/> -->
         </bsdf>
     </bsdf>
 
     <shape type="ply">
         <string name="filename" value="meshes/bunny.ply"/>
-        <boolean name="face_normals" value="true"/>
 		<transform name="to_world">
 			<scale value="12"/>
 			<rotate z="1" angle="130"/>
