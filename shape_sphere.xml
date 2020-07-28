@@ -3,7 +3,7 @@
         <bsdf type="roughconductor">
 			<string name="material" value="Ag"/>
             <float name="alpha" value="0.16"/>
-			<!-- <rgb name="reflectance" value="0,0,0"/> -->
+			<rgb name="reflectance" value="0,0,0"/>
         </bsdf>
     </bsdf>
 

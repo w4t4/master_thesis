@@ -1,9 +1,19 @@
 <scene version="2.0.0">
-	<bsdf type="twosided" id="object_bsdf">
+	<bsdf type="twosided" id="left">
         <bsdf type="roughconductor">
+		<!-- <bsdf type="diffuse"> -->
 			<string name="material" value="Ag"/>
-			<float name="alpha" value="0.25"/>
-            <!-- <rgb name="reflectance" value="0.2, 0.25, 0.7"/> -->
+			<float name="alpha" value="0.16"/>
+            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
+        </bsdf>
+    </bsdf>
+
+	<bsdf type="twosided" id="right">
+		<bsdf type="roughconductor">
+        <!-- <bsdf type="diffuse"> -->
+			<string name="material" value="Ag"/>
+			<float name="alpha" value="0.16"/>
+            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
         </bsdf>
     </bsdf>
 
@@ -17,9 +27,24 @@
 			<rotate z="1" angle="-50"/>
 			<rotate y="1" angle="-2"/>
 			<rotate x="1" angle="12"/>
-			<translate x="0.3" y="0" z="-0.3"/>
+			<translate x="-0.7" y="-1" z="-0.3"/>
 		</transform>
-        <ref id="object_bsdf"/>
+        <ref id="left"/>
+    </shape>
+
+	    <shape type="ply">
+        <string name="filename" value="meshes/bunny.ply"/>
+		<transform name="to_world">
+			<scale value="12"/>
+			<rotate z="1" angle="130"/>
+			<rotate y="1" angle="70"/>
+			<rotate x="1" angle="-50"/>
+			<rotate z="1" angle="-50"/>
+			<rotate y="1" angle="-2"/>
+			<rotate x="1" angle="12"/>
+			<translate x="1.3" y="1" z="-0.3"/>
+		</transform>
+        <ref id="right"/>
     </shape>
 
     <include filename="shape_scene.xml"/>

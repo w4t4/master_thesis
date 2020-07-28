@@ -7,7 +7,7 @@
 	<sensor type="perspective" id="Camera-camera">
 		<string name="fov_axis" value="smaller"/>
 		<float name="focus_distance" value="6.0"/>
-		<float name="fov" value="35.8415"/>
+		<float name="fov" value="45.8415"/>
 		<!-- <float name="fov" value="28.8415"/> -->
 		<transform name="to_world">
 			<lookat target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/>
@@ -18,7 +18,7 @@
 		</sampler>
 
 		<film type="hdrfilm" id="film">
-			<integer name="width" value="1200"/>
+			<integer name="width" value="1440"/>
 			<integer name="height" value="960"/>
 			<string name="pixel_format" value="rgb"/>
 			<rfilter type="gaussian"/>
@@ -29,8 +29,8 @@
 		<!-- <string name="filename" value="envmap/autumn_forest_01_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/combination_room_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/driving_school_2k.hdr"/> -->
-		<!-- <string name="filename" value="envmap/moonless_golf_2k.hdr"/> -->
-		<string name="filename" value="envmap/photo_studio_01_2k.hdr"/>
+		<string name="filename" value="envmap/moonless_golf_2k.hdr"/>
+		<!-- <string name="filename" value="envmap/photo_studio_01_2k.hdr"/> -->
 		<transform name="to_world">
 			<lookat target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/>
 			<!-- <matrix value="-0.224951 -0.000001 -0.974370 0.000000 -0.974370 0.000000 0.224951 0.000000 0.000000 1.000000 -0.000001 8.870000 0.000000 0.000000 0.000000 1.000000 "/> -->
