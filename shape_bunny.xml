@@ -1,7 +1,8 @@
 <scene version="2.0.0">
 	<bsdf type="twosided" id="object_bsdf">
-        <bsdf type="conductor">
+        <bsdf type="roughconductor">
 			<string name="material" value="Ag"/>
+			<float name="alpha" value="0.25"/>
             <!-- <rgb name="reflectance" value="0.2, 0.25, 0.7"/> -->
         </bsdf>
     </bsdf>
