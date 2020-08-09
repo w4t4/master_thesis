@@ -1,0 +1,85 @@
+<scene version="2.0.0">
+	<shape type="disk">
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="checkerboard">
+					<spectrum name="color0" value="0.2"/>
+					<spectrum name="color1" value="0.1"/>
+					<transform name="to_uv">
+						<scale x="2" y="2"/>
+					</transform>
+				</texture>
+			</bsdf>
+		</bsdf>
+		<transform name="to_world">
+			<scale value="1.15"/>
+			<rotate z="1" angle="45"/>
+			<rotate y="1" angle="-15"/>
+			<rotate x="1" angle="-15"/>
+			<translate x="1.15" y="0.85" z="-1.2"/>
+		</transform>
+	</shape>
+
+	<shape type="cylinder">
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="checkerboard">
+					<spectrum name="color0" value="0.2"/>
+					<spectrum name="color1" value="0.1"/>
+					<transform name="to_uv">
+						<scale x="2" y="2"/>
+					</transform>
+				</texture>
+			</bsdf>
+		</bsdf>
+		<float name="radius" value="1.03"/>
+		<transform name="to_world">
+			<scale value="1.15"/>
+			<rotate z="1" angle="45"/>
+			<rotate y="1" angle="-15"/>
+			<rotate x="1" angle="-15"/>
+			<translate x="1.375" y="0.68" z="-2.395"/>
+		</transform>
+	</shape>
+
+
+	<shape type="disk">
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="checkerboard">
+					<transform name="to_uv">
+						<scale x="2" y="2"/>
+					</transform>
+				</texture>
+			</bsdf>
+		</bsdf>
+		<transform name="to_world">
+			<scale value="1.15"/>
+			<rotate z="1" angle="45"/>
+			<rotate y="1" angle="-15"/>
+			<rotate x="1" angle="-15"/>
+			<translate x="-0.85" y="-1.15" z="-1.2"/>
+		</transform>
+	</shape>
+    <shape type="cylinder">
+		<bsdf type="twosided">
+			<bsdf type="diffuse">
+				<texture name="reflectance" type="checkerboard">
+					<spectrum name="color0" value="0.4"/>
+					<spectrum name="color1" value="0.2"/>
+					<transform name="to_uv">
+						<scale x="2" y="2"/>
+					</transform>
+				</texture>
+			</bsdf>
+		</bsdf>
+		<float name="radius" value="1.01"/>
+		<transform name="to_world">
+			<scale value="1.15"/>
+			<rotate z="1" angle="45"/>
+			<rotate y="1" angle="-15"/>
+			<rotate x="1" angle="-15"/>
+			<translate x="-0.6" y="-1.413" z="-2.31"/>
+		</transform>
+	</shape>
+</scene>

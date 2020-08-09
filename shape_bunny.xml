@@ -9,11 +9,11 @@
     </bsdf>
 
 	<bsdf type="twosided" id="right">
-		<!-- <bsdf type="roughconductor"> -->
-        <bsdf type="diffuse">
-			<!-- <string name="material" value="Ag"/> -->
-			<!-- <float name="alpha" value="0.16"/> -->
-            <rgb name="reflectance" value="0, 0, 0"/>
+		<bsdf type="roughconductor">
+        <!-- <bsdf type="diffuse"> -->
+			<string name="material" value="Ag"/>
+			<float name="alpha" value="0.16"/>
+            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
         </bsdf>
     </bsdf>
 
@@ -27,7 +27,7 @@
 			<rotate z="1" angle="-50"/>
 			<rotate y="1" angle="-2"/>
 			<rotate x="1" angle="12"/>
-			<translate x="-0.7" y="-1" z="-1.4"/>
+			<translate x="-0.7" y="-1" z="-1.5"/>
 		</transform>
         <ref id="left"/>
     </shape>
@@ -42,49 +42,11 @@
 			<rotate z="1" angle="-50"/>
 			<rotate y="1" angle="-2"/>
 			<rotate x="1" angle="12"/>
-			<translate x="1.3" y="1" z="-1.4"/>
+			<translate x="1.3" y="1" z="-1.45"/>
 		</transform>
         <ref id="right"/>
     </shape>
 
-	<shape type="rectangle">
-		<bsdf type="twosided">
-			<bsdf type="diffuse">
-				<texture name="reflectance" type="checkerboard">
-					<transform name="to_uv">
-						<scale x="2" y="2"/>
-					</transform>
-				</texture>
-			</bsdf>
-		</bsdf>
-		<transform name="to_world">
-			<scale value="1"/>
-			<rotate z="1" angle="45"/>
-			<rotate y="1" angle="-15"/>
-			<rotate x="1" angle="-15"/>
-			<translate x="1.0" y="1.0" z="-1.2"/>
-		</transform>
-	</shape>
-
-	<shape type="rectangle">
-		<bsdf type="twosided">
-			<bsdf type="diffuse">
-				<texture name="reflectance" type="checkerboard">
-					<transform name="to_uv">
-						<scale x="2" y="2"/>
-					</transform>
-				</texture>
-			</bsdf>
-		</bsdf>
-		<transform name="to_world">
-			<scale value="1"/>
-			<rotate z="1" angle="45"/>
-			<rotate y="1" angle="-15"/>
-			<rotate x="1" angle="-15"/>
-			<translate x="-1.0" y="-1.0" z="-1.2"/>
-		</transform>
-	</shape>
-
-
+	<include filename="floor.xml"/>
     <include filename="shape_scene.xml"/>
 </scene>
