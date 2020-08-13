@@ -16,7 +16,7 @@
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="1.15" y="0.85" z="-1.2"/>
+			<translate x="2.15" y="0.85" z="-2.2"/>
 		</transform>
 	</shape>
 
@@ -38,7 +38,7 @@
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="1.375" y="0.68" z="-2.395"/>
+			<translate x="2.375" y="0.68" z="-3.395"/>
 		</transform>
 	</shape>
 
@@ -58,7 +58,7 @@
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="-0.85" y="-1.15" z="-1.2"/>
+			<translate x="-0.85" y="-2.15" z="-2.2"/>
 		</transform>
 	</shape>
     <shape type="cylinder">
@@ -79,7 +79,7 @@
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="-0.6" y="-1.413" z="-2.31"/>
+			<translate x="-0.6" y="-2.413" z="-3.31"/>
 		</transform>
 	</shape>
 </scene>

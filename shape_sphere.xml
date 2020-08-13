@@ -1,18 +1,35 @@
 <scene version="2.0.0">
-	<bsdf type="twosided" id="object_bsdf">
+	<bsdf type="twosided" id="left">
         <bsdf type="roughconductor">
 			<string name="material" value="Ag"/>
-            <float name="alpha" value="0.16"/>
-			<rgb name="reflectance" value="0,0,0"/>
+            <float name="alpha" value="0.01"/>
+			<!-- <rgb name="reflectance" value="0,0,0"/> -->
+        </bsdf>
+    </bsdf>
+
+    <bsdf type="twosided" id="right">
+		<bsdf type="roughconductor">
+        <!-- <bsdf type="diffuse"> -->
+			<string name="material" value="Ag"/>
+			<float name="alpha" value="0.01"/>
+            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
         </bsdf>
     </bsdf>
 
     <shape type="sphere">
 		<transform name="to_world">
-			<translate x="0" y="0" z="0.75"/>
+			<translate x="-0.8" y="-2.2" z="-1"/>
 		</transform>
-        <ref id="object_bsdf"/>
+        <ref id="left"/>
     </shape>
 
+    <shape type="sphere">
+		<transform name="to_world">
+			<translate x="2.2" y="0.8" z="-1"/>
+		</transform>
+        <ref id="right"/>
+    </shape>
+
+    <include filename="floor.xml"/>
     <include filename="shape_scene.xml"/>
 </scene>
