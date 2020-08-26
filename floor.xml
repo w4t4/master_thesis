@@ -3,8 +3,8 @@
 		<bsdf type="twosided">
 			<bsdf type="diffuse">
 				<texture name="reflectance" type="checkerboard">
-					<spectrum name="color0" value="0.2"/>
-					<spectrum name="color1" value="0.1"/>
+					<spectrum name="color0" value="0.1"/>
+					<spectrum name="color1" value="0.05"/>
 					<transform name="to_uv">
 						<scale x="2" y="2"/>
 					</transform>
@@ -12,11 +12,11 @@
 			</bsdf>
 		</bsdf>
 		<transform name="to_world">
-			<scale value="1.15"/>
+			<scale value="1.1"/>
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="2.15" y="0.85" z="-2.2"/>
+			<translate x="2.03" y="2.92" z="-3.0"/>
 		</transform>
 	</shape>
 
@@ -24,21 +24,21 @@
 		<bsdf type="twosided">
 			<bsdf type="diffuse">
 				<texture name="reflectance" type="checkerboard">
-					<spectrum name="color0" value="0.2"/>
-					<spectrum name="color1" value="0.1"/>
+					<spectrum name="color0" value="0.1"/>
+					<spectrum name="color1" value="0.05"/>
 					<transform name="to_uv">
 						<scale x="2" y="2"/>
 					</transform>
 				</texture>
 			</bsdf>
 		</bsdf>
-		<float name="radius" value="1.03"/>
+		<float name="radius" value="1.0"/>
 		<transform name="to_world">
-			<scale value="1.15"/>
+			<scale x="1.15" y="1.15" z="4"/>
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="2.375" y="0.68" z="-3.395"/>
+			<translate x="3" y="2.2" z="-7"/>
 		</transform>
 	</shape>
 
@@ -47,6 +47,8 @@
 		<bsdf type="twosided">
 			<bsdf type="diffuse">
 				<texture name="reflectance" type="checkerboard">
+					<spectrum name="color0" value="0.1"/>
+					<spectrum name="color1" value="0.05"/>
 					<transform name="to_uv">
 						<scale x="2" y="2"/>
 					</transform>
@@ -54,32 +56,32 @@
 			</bsdf>
 		</bsdf>
 		<transform name="to_world">
-			<scale value="1.15"/>
+			<scale value="1.1"/>
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="-0.85" y="-2.15" z="-2.2"/>
+			<translate x="-2.96" y="-1.96" z="-3.0"/>
 		</transform>
 	</shape>
     <shape type="cylinder">
 		<bsdf type="twosided">
 			<bsdf type="diffuse">
 				<texture name="reflectance" type="checkerboard">
-					<spectrum name="color0" value="0.4"/>
-					<spectrum name="color1" value="0.2"/>
+					<spectrum name="color0" value="0.1"/>
+					<spectrum name="color1" value="0.05"/>
 					<transform name="to_uv">
 						<scale x="2" y="2"/>
 					</transform>
 				</texture>
 			</bsdf>
 		</bsdf>
-		<float name="radius" value="1.01"/>
+		<float name="radius" value="1.0"/>
 		<transform name="to_world">
-			<scale value="1.15"/>
+			<scale x="1.15" y="1.15" z="4"/>
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="-0.6" y="-2.413" z="-3.31"/>
+			<translate x="-2.2" y="-2.9" z="-7"/>
 		</transform>
 	</shape>
 </scene>

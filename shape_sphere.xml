@@ -18,16 +18,16 @@
 
     <shape type="sphere">
 		<transform name="to_world">
-			<translate x="-0.8" y="-2.2" z="-1"/>
+			<translate x="1.9" y="2.99" z="-2.35"/>
 		</transform>
-        <ref id="left"/>
+        <ref id="right"/>
     </shape>
 
     <shape type="sphere">
 		<transform name="to_world">
-			<translate x="2.2" y="0.8" z="-1"/>
+			<translate x="-3.2" y="-1.7" z="-2.35"/>
 		</transform>
-        <ref id="right"/>
+        <ref id="left"/>
     </shape>
 
     <include filename="floor.xml"/>

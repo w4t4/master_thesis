@@ -10,7 +10,7 @@
 		<float name="fov" value="65.8415"/>
 		<!-- <float name="fov" value="28.8415"/> -->
 		<transform name="to_world">
-			<lookat target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/>
+			<lookat origin="3.69558, -3.46243, 3.25463" target="3.04072, -2.85176, 2.80939" up="-0.317366, 0.312466, 0.895346"/>
 		</transform>
 
 		<sampler type="independent">
@@ -18,21 +18,28 @@
 		</sampler>
 
 		<film type="hdrfilm" id="film">
-			<integer name="width" value="720"/>
-			<integer name="height" value="480"/>
+			<integer name="width" value="1440"/>
+			<integer name="height" value="810"/>	
+			<!-- <integer name="width" value="720"/>
+			<integer name="height" value="405"/> -->
 			<string name="pixel_format" value="rgb"/>
 			<rfilter type="gaussian"/>
 		</film>
 	</sensor>
 
 	<emitter type="envmap" id="Area_002-light">
-		<string name="filename" value="envmap/autumn_forest_01_2k.hdr"/>
+		<!-- <string name="filename" value="envmap/autumn_forest_01_2k.hdr"/> -->
+		<!-- <string name="filename" value="envmap/blue_lagoon_night_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/combination_room_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/driving_school_2k.hdr"/> -->
-		<!-- <string name="filename" value="envmap/moonless_golf_2k.hdr"/> -->
+		<!-- <string name="filename" value="envmap/lenong_2_2k.hdr"/> -->
+		<!-- <string name="filename" value="envmap/lythwood_lounge_2k.hdr"/> -->
+		<!-- <string name="filename" value="envmap/mealie_road_2k.hdr"/> -->
+		<string name="filename" value="envmap/moonless_golf_2k.hdr"/>
+		<!-- <string name="filename" value="envmap/noon_grass_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/photo_studio_01_2k.hdr"/> -->
 		<transform name="to_world">
-			<lookat target="3.04072, -2.85176, 2.80939" origin="3.69558, -3.46243, 3.25463" up="-0.317366, 0.312466, 0.895346"/>
+			<lookat origin="3.69558, -3.46243, 3.25463" target="3.04072, -2.85176, 2.80939" up="-0.317366, 0.312466, 0.895346"/>
 			<!-- <matrix value="-0.224951 -0.000001 -0.974370 0.000000 -0.974370 0.000000 0.224951 0.000000 0.000000 1.000000 -0.000001 8.870000 0.000000 0.000000 0.000000 1.000000 "/> -->
 		</transform>
 		<float name="scale" value="1"/>

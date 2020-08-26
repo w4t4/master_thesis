@@ -9,7 +9,7 @@ from mitsuba.core import Bitmap, Struct, Thread
 from mitsuba.core.xml import load_file
 
 # Absolute or relative path to the XML file
-filename = 'shape_sphere.xml'
+filename = 'shape_bunny.xml'
 
 # Add the scene directory to the FileResolver's search path
 Thread.thread().file_resolver().append(os.path.dirname(filename))
