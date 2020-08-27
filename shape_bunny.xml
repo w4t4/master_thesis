@@ -1,19 +1,19 @@
 <scene version="2.0.0">
 	<bsdf type="twosided" id="left">
-        <bsdf type="roughconductor">
-		<!-- <bsdf type="diffuse"> -->
-			<string name="material" value="Ag"/>
-			<float name="alpha" value="0.16"/>
-            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
+        <!-- <bsdf type="roughconductor"> -->
+		<bsdf type="diffuse">
+			<!-- <string name="material" value="Ag"/>
+			<float name="alpha" value="0.16"/> -->
+            <rgb name="reflectance" value="0, 0, 0"/>
         </bsdf>
     </bsdf>
 
 	<bsdf type="twosided" id="right">
-		<bsdf type="roughconductor">
-        <!-- <bsdf type="diffuse"> -->
-			<string name="material" value="Ag"/>
-			<float name="alpha" value="0.16"/>
-            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
+		<!-- <bsdf type="roughconductor"> -->
+        <bsdf type="diffuse">
+			<!-- <string name="material" value="Ag"/> -->
+			<!-- <float name="alpha" value="0.16"/> -->
+            <rgb name="reflectance" value="0, 0, 0"/>
         </bsdf>
     </bsdf>
 
