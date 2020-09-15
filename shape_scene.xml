@@ -28,9 +28,9 @@
 	</sensor>
 
 	<emitter type="envmap" id="Area_002-light">
-		<string name="filename" value="envmap/autumn_forest_01_2k.hdr"/>
+		<!-- <string name="filename" value="envmap/autumn_forest_01_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/blue_lagoon_night_2k.hdr"/> -->
-		<!-- <string name="filename" value="envmap/combination_room_2k.hdr"/> -->
+		<string name="filename" value="envmap/combination_room_2k.hdr"/>
 		<!-- <string name="filename" value="envmap/driving_school_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/lenong_2_2k.hdr"/> -->
 		<!-- <string name="filename" value="envmap/lythwood_lounge_2k.hdr"/> -->
