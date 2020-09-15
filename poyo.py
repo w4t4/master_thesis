@@ -29,7 +29,7 @@ film = scene.sensors()[0].film()
 
 # Write out a tonemapped JPG of the same rendering
 bmp = film.bitmap(raw=True)
-bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.UInt8, srgb_gamma=True).write('piyo.jpg')
+bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.UInt8, srgb_gamma=True).write('images/bunny/ag/0.01/sn.jpg')
 
 # Get linear pixel values as a numpy array for further processing
 bmp_linear_rgb = bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.Float32, srgb_gamma=False)
