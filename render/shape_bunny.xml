@@ -1,24 +1,24 @@
 <scene version="2.0.0">
 	<bsdf type="twosided" id="left">
-        <bsdf type="roughconductor">
-		<!-- <bsdf type="diffuse"> -->
-			<string name="material" value="Ag"/>
-			<float name="alpha" value="0.16"/>
-            <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
+        <!-- <bsdf type="roughconductor"> -->
+		<bsdf type="diffuse">
+			<!-- <string name="material" value="Ag"/> -->
+			<!-- <float name="alpha" value="0.16"/> -->
+            <rgb name="reflectance" value="0.2, 0.2, 0.6"/>
         </bsdf>
     </bsdf>
 
     <shape type="ply">
         <string name="filename" value="bunny.ply"/>
 		<transform name="to_world">
-			<scale value="12"/>
+			<scale value="15"/>
 			<rotate z="1" angle="130"/>
 			<rotate y="1" angle="70"/>
 			<rotate x="1" angle="-50"/>
 			<rotate z="1" angle="-50"/>
 			<rotate y="1" angle="-2"/>
 			<rotate x="1" angle="12"/>
-			<translate x="-3.0" y="-1.8" z="-3.5"/>
+			<translate x="0" y="0.2" z="-3.5"/>
 		</transform>
         <ref id="left"/>
     </shape>

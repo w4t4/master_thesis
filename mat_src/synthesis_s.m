@@ -1,6 +1,6 @@
 
 % envmaps = ["au","bl","co","dr","le","ly","me","mo","no","ph","sn"];
-envmaps = ["au","bl","co","mo"]
+envmaps = ["au","bl","co"]
 len = length(envmaps);
 
 mask = imread("../images/bunny/mask/au.jpg");
@@ -29,9 +29,9 @@ srr = [0 -1 1 0 -1 1 -1 1; 1 0 0 -1 1 1 -1 -1];
 comb = combnk(1:len,2);
 
 % for n = 1:len
-for n = 4:4
+for n = 2:2
 %     for m = 1:nchoosek(len,2)
-    for m = 1:1
+    for m = 2:3
         lr = randi(2);
         
         for ptn = 1:2

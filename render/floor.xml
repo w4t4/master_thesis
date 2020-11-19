@@ -12,15 +12,14 @@
 			</bsdf>
 		</bsdf>
 		<transform name="to_world">
-			<scale value="1.1"/>
+			<scale value="1.4"/>
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="2.03" y="2.92" z="-3.0"/>
+			<translate x="0.04" y="0.04" z="-3.0"/>
 		</transform>
 	</shape>
-
-	<shape type="cylinder">
+    <shape type="cylinder">
 		<bsdf type="twosided">
 			<bsdf type="diffuse">
 				<texture name="reflectance" type="checkerboard">
@@ -32,14 +31,13 @@
 				</texture>
 			</bsdf>
 		</bsdf>
-		<float name="radius" value="1.0"/>
+		<float name="radius" value="1.24"/>
 		<transform name="to_world">
 			<scale x="1.15" y="1.15" z="4"/>
 			<rotate z="1" angle="45"/>
 			<rotate y="1" angle="-15"/>
 			<rotate x="1" angle="-15"/>
-			<translate x="3" y="2.2" z="-7"/>
+			<translate x="1" y="-0.9" z="-6.85"/>
 		</transform>
 	</shape>
-
 </scene>
