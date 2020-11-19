@@ -29,9 +29,9 @@ srr = [0 -1 1 0 -1 1 -1 1; 1 0 0 -1 1 1 -1 -1];
 comb = combnk(1:len,2);
 
 % for n = 1:len
-for n = 3:3
+for n = 1:3
 %     for m = 1:nchoosek(len,2)
-    for m = 3:3
+    for m = 1:3
         lr = randi(2);
        
         cmps(:,:,:) = masks(:,:,:,n);
@@ -59,7 +59,7 @@ for n = 3:3
         end
         disp((nchoosek(len,2)-1)*(n-1)+m);
         imshow(cmps/255);
-        imwrite(cmps/255,"../stimuli/",num2str(ptn),"matte/",num2str(n),"_",num2str(m),".jpg"
+        imwrite(cmps/255,strcat("../stimuli/matte/blue/",num2str(n),"_",num2str(m),".jpg"));
 %         save(strcat("../stimuli/pattern",num2str(ptn),"/bunny/ag/0.01/ba01_",num2str(n),"_",num2str(m),".mat"),"cmps");
     end
 end
