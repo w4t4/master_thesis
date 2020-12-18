@@ -2,36 +2,57 @@ import os
 import numpy as np
 import mitsuba
 
-# Set the desired mitsuba variant
-mitsuba.set_variant('scalar_rgb')
+envmaps = ['normalizedEnvmap/autumn_forest_01_2k.hdr',
+            'normalizedEnvmap/combination_room_2k.hdr',
+		    'normalizedEnvmap/autumn_forest_01_2k.hdr',
+		    'normalizedEnvmap/combination_room_2k.hdr',
+		    'normalizedEnvmap/driving_school_2k.hdr',
+	        'normalizedEnvmap/hansaplatz_2k.hdr',
+		    'normalizedEnvmap/lenong_2_2k.hdr',
+		    'normalizedEnvmap/lythwood_lounge_2k.hdr',
+		    'normalizedEnvmap/mealie_road_2k.hdr',
+		    'normalizedEnvmap/moonless_golf_2k.hdr',
+		    'normalizedEnvmap/noon_grass_2k.hdr',
+		    'normalizedEnvmap/photo_studio_01_2k.hdr',
+		    'normalizedEnvmap/preller_drive_2k.hdr',
+		    'normalizedEnvmap/snowy_park_01_2k.hdr']
 
-from mitsuba.core import Bitmap, Struct, Thread
-from mitsuba.core.xml import load_file
+for i in range(12):
 
-# Absolute or relative path to the XML file
-filename = 'shape_bunny.xml'
+    s = envmaps[i]
+    index = s.find('/')
+    envName = s[index+1:index+3]
+    print(s,index,envName)
+    # Set the desired mitsuba variant
+    mitsuba.set_variant('scalar_rgb')
 
-# Add the scene directory to the FileResolver's search path
-Thread.thread().file_resolver().append(os.path.dirname(filename))
+    from mitsuba.core import Bitmap, Struct, Thread
+    from mitsuba.core.xml import load_file
 
-# Load the actual scene
-scene = load_file(filename)
+    # Absolute or relative path to the XML file
+    filename = 'shape_bunny.xml'
 
-# Call the scene's integrator to render the loaded scene
-scene.integrator().render(scene, scene.sensors()[0])
+    # Add the scene directory to the FileResolver's search path
+    Thread.thread().file_resolver().append(os.path.dirname(filename))
 
-# After rendering, the rendered data is stored in the film
-film = scene.sensors()[0].film()
+    # Load the actual scene
+    scene = load_file(filename, envmap=envmaps[i])
 
-# Write out rendering as high dynamic range OpenEXR file
-# film.set_destination_file('output.exr')
-# film.develop()
+    # Call the scene's integrator to render the loaded scene
+    scene.integrator().render(scene, scene.sensors()[0])
 
-# Write out a tonemapped JPG of the same rendering
-bmp = film.bitmap(raw=True)
-bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.UInt8, srgb_gamma=True).write('poyo.jpg')
+    # After rendering, the rendered data is stored in the film
+    film = scene.sensors()[0].film()
 
-# Get linear pixel values as a numpy array for further processing
-bmp_linear_rgb = bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.Float32, srgb_gamma=False)
-image_np = np.array(bmp_linear_rgb)
-print(image_np.shape)
+    # Write out rendering as high dynamic range OpenEXR file
+    # film.set_destination_file('output.exr')
+    # film.develop()
+
+    # Write out a tonemapped JPG of the same rendering
+    bmp = film.bitmap(raw=True)
+    bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.UInt8, srgb_gamma=True).write(envName + '.png')
+
+    # Get linear pixel values as a numpy array for further processing
+    bmp_linear_rgb = bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.Float32, srgb_gamma=False)
+    image_np = np.array(bmp_linear_rgb)
+    print(image_np.shape)

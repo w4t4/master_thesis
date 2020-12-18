@@ -2,9 +2,15 @@
 	<bsdf type="twosided" id="left">
         <!-- <bsdf type="roughconductor"> -->
 		<bsdf type="diffuse">
-			<!-- <string name="material" value="Ag"/> -->
+		<!-- <bsdf type="roughplastic"> -->
 			<!-- <float name="alpha" value="0.16"/> -->
-            <rgb name="reflectance" value="0.2, 0.2, 0.6"/>
+
+			<!-- <rgb name="reflectance" value="0.89, 0.62, 0.42"/> -->
+			<!-- <rgb name="diffuse_reflectance" value="0.75, 0.63, 0.10"/> -->
+            <!-- <rgb name="reflectance" value="0.27, 0.76, 0.54"/> -->
+            <!-- <rgb name="reflectance" value="0.31, 0.72, 0.79"/> -->
+            <!-- <rgb name="reflectance" value="0.55, 0.55, 0.55"/> -->
+            <rgb name="reflectance" value="0, 0, 0"/>
         </bsdf>
     </bsdf>
 
