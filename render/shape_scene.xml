@@ -20,8 +20,6 @@
 		<film type="hdrfilm" id="film">
 			<integer name="width" value="600"/>
 			<integer name="height" value="800"/>	
-			<!-- <integer name="width" value="720"/>
-			<integer name="height" value="405"/> -->
 			<string name="pixel_format" value="rgb"/>
 			<rfilter type="gaussian"/>
 		</film>

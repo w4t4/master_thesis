@@ -14,7 +14,7 @@ screenNumber=max(Screen('Screens'));
 InitializeMatlabOpenGL;
 
 try
-    % set window
+    %% set window
     PsychImaging('PrepareConfiguration');
     PsychImaging('AddTask', 'General', 'FloatingPoint32BitIfPossible');
     [windowPtr, windowRect] = PsychImaging('OpenWindow', screenNumber, 0);
@@ -27,16 +27,17 @@ try
     RefleshRate = 1./FlipInterval; % モニタ
     HideCursor(screenNumber);
 
-    % Key 
+    %% Key 
     myKeyCheck;
     escapeKey = KbName('ESCAPE');
     leftKey = KbName('LeftArrow');
     rightKey = KbName('RightArrow');
     
-    imSize = [810,1440,3];
+
     
     SetMouse(screenWidth/2,screenHeight/2,screenNumber);
-    % display initial text
+
+    %% display initial text
     Screen('TextSize', windowPtr, 35);
     startText = ['Click to start'];
     DrawFormattedText(windowPtr, startText, 'center', 'center', [255 255 255]);
@@ -45,107 +46,53 @@ try
     Screen('Flip', windowPtr);
     WaitSecs(2);
     
-    % set parameter
+    %% set parameter
+    ix = 600;
+    iy = 800;
     [mx,my] = RectCenter(windowRect);
-    [iy,ix,iz] = size(dragonSD(:,:,:,1));
     distance = mx/1.75;
     scale = 2.5/9;
-    displayStimuliTime = 1;
     intervalTime = 1;
     leftPosition = [mx-ix*scale-distance/2, my-iy*scale, mx+ix*scale-distance/2, my+iy*scale]; 
     rightPosition = [mx-ix*scale+distance/2, my-iy*scale, mx+ix*scale+distance/2, my+iy*scale];
-    combination = combnk(1:9,2);
-    victoryTable = zeros(9,9,4);
-    nckOrder = zeros(1,nchoosek(9,2),4);
     
-    repetition = 4;
+    totalSession = 10;
     
-    %% expect 11C2*11(env combination) * 2(shape) * 2(material) * 2(roughness) * 2(counter ballance) images
-    shape = ["b","s"]  % bunny or sphere
-    materal = ["a","p"]  % ag or plastic
-    roughness = ["01","16"]  % 0.01 or 0.16
+    %% expect (12-1)^2(env combination) * 5(color) * 3(material) images
+    color = ["gray","red","yellow","green","blue"]; % 
+    materal = ["m","p","c"]  % matte, plastic, conductor    
+            
+    %% main program
     
-    
-            nckOrder(:,:,i) = randperm(nchoosek(9,2));
-        end
+    for i = 1:1
+        SetMouse(screenWidth/2,screenHeight/2,screenNumber);
 
-        for i = 1:36
-            materialOrder = randperm(4);
-            %materialOrder = [1 2 3 4];
-            SetMouse(screenWidth/2,screenHeight/2,screenNumber);
-            for j = 1:4
-                
-                imageArray = Screen('GetImage',windowPtr);
-                
-                trialCount = 36*4*(r-1)+4*(i-1)+j
-                if trialCount == 36*4*4/2
-                    pauseText = 'Click to resume';
-                    DrawFormattedText(windowPtr, pauseText, 'center', 'center', [255 255 255]);
-                    Screen('Flip', windowPtr);
-                    [clicks,x,y,whichButton] = GetClicks(windowPtr,0);
-                    Screen('Flip', windowPtr);
-                    WaitSecs(2);
-                end
-                
-                OneorTwo = randi([1 2]);
-                colorLeft = combination(nckOrder(1,i,materialOrder(j)),OneorTwo);
-                colorRight = combination(nckOrder(1,i,materialOrder(j)),3-OneorTwo);
-                rgbLeft = stimuli(:,:,:,colorLeft,materialOrder(j));
-                rgbRight = stimuli(:,:,:,colorRight,materialOrder(j));
-                leftStimulus = Screen('MakeTexture', windowPtr, rgbLeft);
-                rightStimulus = Screen('MakeTexture', windowPtr, rgbRight);
-                
-                [x,y,buttons] = GetMouse;
-                while any(buttons)
-                    [x,y,buttons] = GetMouse;
-                end
-                flag = 0;
-                for k = 1:RefleshRate*1000
-                    [x,y,buttons] = GetMouse;
-                    %buttons = buttons(1)
-                    if k < RefleshRate*displayStimuliTime
-                        Screen('DrawTexture', windowPtr, leftStimulus, [], leftPosition);
-                        Screen('DrawTexture', windowPtr, rightStimulus, [], rightPosition);
-                        
-                        Screen('Flip', windowPtr);
-                    else
-                        Screen('Flip', windowPtr);
-                    end
+        while true
+            [x,y,buttons] = GetMouse;
 
-                    % wait click input
+            Screen('FillRect', windowPtr, [100 100 100], leftPosition);
+            Screen('FillRect', windowPtr, [255 255 255], rightPosition);
+            Screen('Flip', windowPtr);
 
-                    if(buttons(1) == 1 || buttons(3) == 1)
-
-                        flag = 1;
-                        if buttons(1) == 1
-                            victoryTable(colorLeft,colorRight,materialOrder(j)) ...
-                                = victoryTable(colorLeft,colorRight,materialOrder(j)) + 1;
-                            a = "hidari";
-                        elseif buttons(3) == 1
-                            victoryTable(colorRight,colorLeft,materialOrder(j)) ...
-                                = victoryTable(colorRight,colorLeft,materialOrder(j)) + 1;
-                            a = "migi";
-                        end
-                        [keyIsDown, secs, keyCode, deltaSecs] = KbCheck([]);
-                        if keyCode(escapeKey)
-                            error('escape key is pressed.');
-                        end
-                    end
-                    if flag == 1
-                        break;
-                    end
-                end
-                Screen('Flip', windowPtr);
-                WaitSecs(intervalTime);
+            if buttons(1) == 1
+                break;
             end
+            [keyIsDown, secs, keyCode, deltaSecs] = KbCheck([]);
+            if keyCode(escapeKey)
+                error('escape key is pressed.');
+            end
+            
         end
+        Screen('Flip', windowPtr);
+        WaitSecs(intervalTime);
     end
+    
     finishText = 'The experiment is over.';
     DrawFormattedText(windowPtr, finishText, 'center', 'center', [255 255 255]);
     Screen('Flip', windowPtr);
     [clicks,x,y,whichButton] = GetClicks(windowPtr,0);
     
-    save(datafilename,'victoryTable');
+
     Screen('CloseAll');
     ShowCursor;
     ListenChar(0);

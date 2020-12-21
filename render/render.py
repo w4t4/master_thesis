@@ -2,10 +2,8 @@ import os
 import numpy as np
 import mitsuba
 
-envmaps = ['normalizedEnvmap/autumn_forest_01_2k.hdr',
+nenvmaps = ['normalizedEnvmap/autumn_forest_01_2k.hdr',
             'normalizedEnvmap/combination_room_2k.hdr',
-		    'normalizedEnvmap/autumn_forest_01_2k.hdr',
-		    'normalizedEnvmap/combination_room_2k.hdr',
 		    'normalizedEnvmap/driving_school_2k.hdr',
 	        'normalizedEnvmap/hansaplatz_2k.hdr',
 		    'normalizedEnvmap/lenong_2_2k.hdr',
@@ -16,6 +14,19 @@ envmaps = ['normalizedEnvmap/autumn_forest_01_2k.hdr',
 		    'normalizedEnvmap/photo_studio_01_2k.hdr',
 		    'normalizedEnvmap/preller_drive_2k.hdr',
 		    'normalizedEnvmap/snowy_park_01_2k.hdr']
+
+envmaps = ['envmap/autumn_forest_01_2k.hdr',
+            'envmap/combination_room_2k.hdr',
+		    'envmap/driving_school_2k.hdr',
+	        'envmap/hansaplatz_2k.hdr',
+		    'envmap/lenong_2_2k.hdr',
+		    'envmap/lythwood_lounge_2k.hdr',
+		    'envmap/mealie_road_2k.hdr',
+		    'envmap/moonless_golf_2k.hdr',
+		    'envmap/noon_grass_2k.hdr',
+		    'envmap/photo_studio_01_2k.hdr',
+		    'envmap/preller_drive_2k.hdr',
+		    'envmap/snowy_park_01_2k.hdr']
 
 for i in range(12):
 

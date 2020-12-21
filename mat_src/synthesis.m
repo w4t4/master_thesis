@@ -1,19 +1,19 @@
 
-% envmaps = ["au","bl","co","dr","le","ly","me","mo","no","ph","sn"];
-envmaps = ["bl","co","mo"]
+envmaps = ["au","co","dr","ha","le","ly","me","mo","no","ph","pr","sn"];
+% envmaps = ["au","bl","co","dr","mo"]
 len = length(envmaps);
 
-mask = imread("../images/bunny/mask/au.jpg");
+mask = imread("../render/image/mask/raw/au.png");
 [iy ix iz] = size(mask);
 
 masks = zeros(iy,ix,iz,len);
 for i = 1:len
-    masks(:,:,:,i) = imread(strcat("../render/image/mask/",envmaps(i),".jpg"));
+    masks(:,:,:,i) = imread(strcat("../render/image/mask/raw/",envmaps(i),".png"));
 end
 
 pics = zeros(iy,ix,iz,len);
 for i = 1:len
-    pics(:,:,:,i) = imread(strcat("../render/image/dif/",envmaps(i),".jpg"));
+    pics(:,:,:,i) = imread(strcat("../render/image/conductor/raw/yellow/",envmaps(i),".png"));
 end
 
 cmps = zeros(iy,ix,iz);
@@ -29,16 +29,15 @@ srr = [0 -1 1 0 -1 1 -1 1; 1 0 0 -1 1 1 -1 -1];
 comb = combnk(1:len,2);
 
 % for n = 1:len
-for n = 1:3
+for n = 1:len
 %     for m = 1:nchoosek(len,2)
-    for m = 1:3
-        lr = randi(2);
+    for m = 1:1
        
         cmps(:,:,:) = masks(:,:,:,n);
         check = zeros(iy,ix);
 
-        for i = 480 : 770
-            for j = 540 : 1000
+        for i = 400 : 700
+            for j = 200 : 400
                 if masks(i,j,1,n) <= blackThr
                     cmps(i,j,:) = pics(i,j,:,m);
                     check(i,j) = 1;
@@ -59,7 +58,7 @@ for n = 1:3
         end
         disp((nchoosek(len,2)-1)*(n-1)+m);
         imshow(cmps/255);
-        imwrite(cmps/255,strcat("../stimuli/matte/blue/",num2str(n),"_",num2str(m),".jpg"));
+        imwrite(cmps/255,strcat("../stimuli/conductor/raw/yellow/",num2str(n),"_",num2str(m),".png"));
 %         save(strcat("../stimuli/pattern",num2str(ptn),"/bunny/ag/0.01/ba01_",num2str(n),"_",num2str(m),".mat"),"cmps");
     end
 end
