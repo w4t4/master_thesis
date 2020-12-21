@@ -50,11 +50,11 @@ try
     ix = 600;
     iy = 800;
     [mx,my] = RectCenter(windowRect);
-    distance = 400;
+    distance = mx/1.75;
     scale = 1;
     intervalTime = 1;
-    leftPosition = [mx-ix-distance/2, my-iy/2, mx-distance/2, my+iy/2]; 
-    rightPosition = [mx+distance/2, my-iy/2, mx+ix+distance/2, my+iy/2];
+    leftPosition = [mx-ix-distance/2, my-iy/2, mx-distance/2, my+iy/2*scale]; 
+    rightPosition = [mx-ix/2*scale+distance/2, my-iy/2*scale, mx+ix/2*scale+distance/2, my+iy/2*scale];
     
     totalSession = 10;
     
