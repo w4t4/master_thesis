@@ -60,19 +60,49 @@ try
     
     %% expect (12-1)^2(env combination) * 5(color) * 3(material) images
     color = ["gray","red","yellow","green","blue"]; % 
-    materal = ["m","p","c"];  % matte, plastic, conductor    
+    material = ["matte","plastic","conductor"];  % matte, plastic, conductor    
             
     %% main program
     
-    for i = 1:1
+    for i = 1:2
         SetMouse(screenWidth/2,screenHeight/2,screenNumber);
 
+        % todo: stimRef,stimTar
+        stimTar = imread(strcat("../stimuli/", material(3), "/", color(5), "/", num2str(1), "_", num2str(1), ".png"));
+%         stimTar = double(stimTar)/255;
+        
+%         texRef = Screen('MakeTexture', windowPtr, stimRef);
+        texTar = Screen('MakeTexture', windowPtr, stimTar);
+
         while true
+            
+            % restrict x coordinate 300 ~ 1800
             [x,y,buttons] = GetMouse;
-            DrawFormattedText(windowPtr, num2str(x), 'center', 'center', [255 255 255]);
+            if x < 300
+                SetMouse(300,screenHeight/2,screenNumber);
+            end
+            if x > 1800
+                SetMouse(1800,screenHeight/2,screenNumber);
+            end
+            
+            % scale x 0 ~ 5 as ratingValue
+            ratingValue = (x - 300) / 300;
+            ratingValue = round(ratingValue, 1);
+            if ratingValue < 0
+                ratingValue = 0;
+            end
+            if ratingValue > 5
+                ratingValue = 5;
+            end
+            
+%             DrawFormattedText(windowPtr, num2str(x), 'center', 'center', [255 255 255]);
+            DrawFormattedText(windowPtr, num2str(ratingValue), 'center', 1000, [255 255 255]);
 
             Screen('FillRect', windowPtr, [100 100 100], leftPosition);
-            Screen('FillRect', windowPtr, [255 255 255], rightPosition);
+%             Screen('FillRect', windowPtr, [150 150 150], rightPosition);
+%             Screen('DrawTexture', windowPtr, texRef, [], leftPosition);
+            Screen('DrawTexture', windowPtr, texTar, [], rightPosition);
+             
             Screen('Flip', windowPtr);
 
             if buttons(1) == 1
@@ -82,8 +112,9 @@ try
             if keyCode(escapeKey)
                 error('escape key is pressed.');
             end
-            
         end
+%         Screen('Close', texRef);
+        Screen('Close', texTar);
         Screen('Flip', windowPtr);
         WaitSecs(intervalTime);
     end
