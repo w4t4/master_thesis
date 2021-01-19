@@ -69,8 +69,12 @@ try
         
         a = randi(12);
         b = randi(12);
-        matIndex = 3;
-        colorIndex = randi(5);
+%         matIndex = 3;
+%         colorIndex = randi(5);
+
+        matIndex = 2;
+        colorIndex = 3;
+        
         % todo: stimRef,stimTar
         filenameRef = strcat("../stimuli/", material(matIndex), "/", color(colorIndex), "/", num2str(2), "_", num2str(2), ".png")
         filenameTar = strcat("../stimuli/", material(matIndex), "/", color(colorIndex), "/", num2str(a), "_", num2str(b), ".png")

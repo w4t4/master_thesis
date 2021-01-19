@@ -18,7 +18,7 @@ for i = 1:length(hdrs)
     hdr = hdrread(strcat("../render/envmap/",hdrs(i)));
     [iy ix iz] = size(hdr);
     xyl = applycform(double(hdr),C);
-    lumSums(i) = sum(sum(xyl(:,:,3)))/(iy*ix);
+    lumSums(i) = sum(sum(xyl(:,:,3)))/(iy*ix)
     if i == 9
         disp(max(max(hdr)))
     end
@@ -28,11 +28,10 @@ aveLumSum = sum(lumSums)/length(hdrs);
 D = makecform('xyl2xyz');
 
 for i = 1:length(hdrs)
-    disp(i)
     hdr = hdrread(strcat("../render/envmap/",hdrs(i)));
     xyl = applycform(double(hdr),C);
-    disp(aveLumSum)
-    disp(sum(sum(xyl(:,:,3)))/(iy*ix));
+%     disp(aveLumSum)
+%     disp(sum(sum(xyl(:,:,3)))/(iy*ix));
     if i == 8 || 11
         xyl(:,:,3) = xyl(:,:,3) * aveLumSum / (sum(sum(xyl(:,:,3)))/(iy*ix)) / 5;
     else
