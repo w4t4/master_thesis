@@ -64,14 +64,19 @@ try
             
     %% main program
     
-    for i = 1:2
+    for i = 1:10
         SetMouse(screenWidth/2,screenHeight/2,screenNumber);
-
-        % todo: stimRef,stimTar
-        stimTar = imread(strcat("../stimuli/", material(3), "/", color(5), "/", num2str(1), "_", num2str(1), ".png"));
-%         stimTar = double(stimTar)/255;
         
-%         texRef = Screen('MakeTexture', windowPtr, stimRef);
+        a = randi(12);
+        b = randi(12);
+        matIndex = 3;
+        colorIndex = randi(5);
+        % todo: stimRef,stimTar
+        filenameRef = strcat("../stimuli/", material(matIndex), "/", color(colorIndex), "/", num2str(2), "_", num2str(2), ".png")
+        filenameTar = strcat("../stimuli/", material(matIndex), "/", color(colorIndex), "/", num2str(a), "_", num2str(b), ".png")
+        stimRef = imread(filenameRef);
+        stimTar = imread(filenameTar);
+        texRef = Screen('MakeTexture', windowPtr, stimRef);
         texTar = Screen('MakeTexture', windowPtr, stimTar);
 
         while true
@@ -98,9 +103,9 @@ try
 %             DrawFormattedText(windowPtr, num2str(x), 'center', 'center', [255 255 255]);
             DrawFormattedText(windowPtr, num2str(ratingValue), 'center', 1000, [255 255 255]);
 
-            Screen('FillRect', windowPtr, [100 100 100], leftPosition);
+%             Screen('FillRect', windowPtr, [100 100 100], leftPosition);
 %             Screen('FillRect', windowPtr, [150 150 150], rightPosition);
-%             Screen('DrawTexture', windowPtr, texRef, [], leftPosition);
+            Screen('DrawTexture', windowPtr, texRef, [], leftPosition);
             Screen('DrawTexture', windowPtr, texTar, [], rightPosition);
              
             Screen('Flip', windowPtr);
@@ -113,7 +118,7 @@ try
                 error('escape key is pressed.');
             end
         end
-%         Screen('Close', texRef);
+        Screen('Close', texRef);
         Screen('Close', texTar);
         Screen('Flip', windowPtr);
         WaitSecs(intervalTime);

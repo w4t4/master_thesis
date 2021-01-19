@@ -29,6 +29,7 @@ envmaps = ['envmap/autumn_forest_01_2k.hdr',
 		    'envmap/snowy_park_01_2k.hdr']
 
 for i in range(12):
+# for i in range (1):
 
     s = envmaps[i]
     index = s.find('/')
@@ -56,14 +57,14 @@ for i in range(12):
     film = scene.sensors()[0].film()
 
     # Write out rendering as high dynamic range OpenEXR file
-    # film.set_destination_file('output.exr')
+    # film.set_destination_file(envName + '.exr')
     # film.develop()
 
-    # Write out a tonemapped JPG of the same rendering
+    # # Write out a tonemapped JPG of the same rendering
     bmp = film.bitmap(raw=True)
     bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.UInt8, srgb_gamma=True).write(envName + '.png')
 
-    # Get linear pixel values as a numpy array for further processing
-    bmp_linear_rgb = bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.Float32, srgb_gamma=False)
-    image_np = np.array(bmp_linear_rgb)
-    print(image_np.shape)
+    # # Get linear pixel values as a numpy array for further processing
+    # bmp_linear_rgb = bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.Float32, srgb_gamma=False)
+    # image_np = np.array(bmp_linear_rgb)
+    # print(image_np.shape)

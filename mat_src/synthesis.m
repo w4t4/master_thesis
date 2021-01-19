@@ -2,6 +2,7 @@
 envmaps = ["au","co","dr","ha","le","ly","me","mo","no","ph","pr","sn"];
 % envmaps = ["au","bl","co","dr","mo"]
 len = length(envmaps);
+color = "green";
 
 mask = imread("../render/image/mask/raw/au.png");
 [iy ix iz] = size(mask);
@@ -13,7 +14,7 @@ end
 
 pics = zeros(iy,ix,iz,len);
 for i = 1:len
-    pics(:,:,:,i) = imread(strcat("../render/image/conductor/raw/yellow/",envmaps(i),".png"));
+    pics(:,:,:,i) = imread(strcat("../render/image/conductor/raw/",color,"/",envmaps(i),".png"));
 end
 
 cmps = zeros(iy,ix,iz);
@@ -31,9 +32,9 @@ comb = combnk(1:len,2);
 % for n = 1:len
 for n = 1:len
 %     for m = 1:nchoosek(len,2)
-    for m = 1:1
+    for m = 1:len
        
-        cmps(:,:,:) = masks(:,:,:,n);
+        cmps(:,:,:) = pics(:,:,:,n);
         check = zeros(iy,ix);
 
         for i = 400 : 700
@@ -58,7 +59,7 @@ for n = 1:len
         end
         disp((nchoosek(len,2)-1)*(n-1)+m);
         imshow(cmps/255);
-        imwrite(cmps/255,strcat("../stimuli/conductor/raw/yellow/",num2str(n),"_",num2str(m),".png"));
+        imwrite(cmps/255,strcat("../stimuli/conductor/",color,"/",num2str(n),"_",num2str(m),".png"));
 %         save(strcat("../stimuli/pattern",num2str(ptn),"/bunny/ag/0.01/ba01_",num2str(n),"_",num2str(m),".mat"),"cmps");
     end
 end
