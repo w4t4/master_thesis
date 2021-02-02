@@ -5,12 +5,14 @@
 		<bsdf type="roughplastic">
 			<float name="alpha" value="0.16"/>
 
-			<!-- <rgb name="diffuse_reflectance" value="0.89, 0.62, 0.42"/> -->
-			<rgb name="diffuse_reflectance" value="0.75, 0.63, 0.10"/>
-            <!-- <rgb name="specular_reflectance" value="0.27, 0.76, 0.54"/> -->
-            <!-- <rgb name="specular_reflectance" value="0.31, 0.72, 0.79"/> -->
             <!-- <rgb name="specular_reflectance" value="0.55, 0.55, 0.55"/> -->
             <!-- <rgb name="reflectance" value="0, 0, 0"/> -->
+
+			<spectrum name="diffuse_reflectance" filename="spd/red.spd"/>
+			<!-- <spectrum name="diffuse_reflectance" filename="spd/yellow.spd"/> -->
+			<!-- <spectrum name="diffuse_reflectance" filename="spd/green.spd"/> -->
+			<!-- <spectrum name="diffuse_reflectance" filename="spd/blue.spd"/> -->
+			<!-- <spectrum name="diffuse_reflectance" filename="spd/gray.spd"/> -->
         </bsdf>
     </bsdf>
 

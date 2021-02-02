@@ -2,19 +2,6 @@ import os
 import numpy as np
 import mitsuba
 
-nenvmaps = ['normalizedEnvmap/autumn_forest_01_2k.hdr',
-            'normalizedEnvmap/combination_room_2k.hdr',
-		    'normalizedEnvmap/driving_school_2k.hdr',
-	        'normalizedEnvmap/hansaplatz_2k.hdr',
-		    'normalizedEnvmap/lenong_2_2k.hdr',
-		    'normalizedEnvmap/lythwood_lounge_2k.hdr',
-		    'normalizedEnvmap/mealie_road_2k.hdr',
-		    'normalizedEnvmap/moonless_golf_2k.hdr',
-		    'normalizedEnvmap/noon_grass_2k.hdr',
-		    'normalizedEnvmap/photo_studio_01_2k.hdr',
-		    'normalizedEnvmap/preller_drive_2k.hdr',
-		    'normalizedEnvmap/snowy_park_01_2k.hdr']
-
 envmaps = ['envmap/autumn_forest_01_2k.hdr',
             'envmap/combination_room_2k.hdr',
 		    'envmap/driving_school_2k.hdr',
