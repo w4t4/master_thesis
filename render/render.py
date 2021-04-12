@@ -15,15 +15,15 @@ envmaps = ['envmap/autumn_forest_01_2k.hdr',
 		    'envmap/preller_drive_2k.hdr',
 		    'envmap/snowy_park_01_2k.hdr']
 
-for i in range(12):
-# for i in range (1):
+# for i in range(12):
+for i in range (1):
 
     s = envmaps[i]
     index = s.find('/')
     envName = s[index+1:index+3]
     print(s,index,envName)
     # Set the desired mitsuba variant
-    mitsuba.set_variant('scalar_rgb')
+    mitsuba.set_variant('scalar_spectral')
 
     from mitsuba.core import Bitmap, Struct, Thread
     from mitsuba.core.xml import load_file
@@ -44,12 +44,12 @@ for i in range(12):
     film = scene.sensors()[0].film()
 
     # Write out rendering as high dynamic range OpenEXR file
-    # film.set_destination_file(envName + '.exr')
-    # film.develop()
+    film.set_destination_file(envName + '.exr')
+    film.develop()
 
     # # Write out a tonemapped JPG of the same rendering
     bmp = film.bitmap(raw=True)
-    bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.UInt8, srgb_gamma=True).write(envName + '.png')
+    bmp.convert(Bitmap.PixelFormat.XYZ, Struct.Type.UInt32, srgb_gamma=False).write(envName + '.exr')
 
     # # Get linear pixel values as a numpy array for further processing
     # bmp_linear_rgb = bmp.convert(Bitmap.PixelFormat.RGB, Struct.Type.Float32, srgb_gamma=False)
